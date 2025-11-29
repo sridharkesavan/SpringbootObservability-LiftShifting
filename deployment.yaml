@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: specialistsearch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: specialistsearch
+  template:
+    metadata:
+      labels:
+        app: specialistsearch
+    spec:
+      containers:
+      - name: specialistsearch
+        image: specialistsearch:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+
